@@ -25,4 +25,22 @@ repositories {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion")
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.7")
 }
+
+dependencies {
+    testCompile("org.springframework.boot:spring-boot-starter-test:$springBootVersion")
+    testCompile("junit:junit:4.12")
+}
+
+bootRun.environment([
+        "WELCOME_MESSAGE": "hello",
+        "PORT":"8675",
+        "MEMORY_LIMIT":"867M",
+        "CF_INSTANCE_INDEX":"1",
+        "CF_INSTANCE_ADDR":"123.sesame.street",
+])
+
+test.environment([
+        "WELCOME_MESSAGE": "Hello from test",
+])
